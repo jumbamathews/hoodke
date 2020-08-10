@@ -1,0 +1,58 @@
+{%extends 'base.html'%}
+{% load static %}
+
+{% block content %}
+{{block.super}}
+
+<div class="container">
+    <br>
+    <div class="row">
+        <div class="col-8">
+            <h1>Residents list | {{hood.hood_name}}</h1>            
+        </div>
+        <div class="col-4">
+            <a href="{%url 'index'%}"><button class="btn btn-outline-secondary">Home</button></a>
+        </div>
+        <hr>
+        {% for resident in residents %}
+        <div class="col-12">
+            <div class="card list-card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-2">
+                            {% if resident.profile_photo %}
+                            <img class="img-thumbnail" src="{{resident.profile_photo.url}}" alt="{{resident.username}}" >
+                            {% else %}
+                            <object data="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png" type="image/png">
+                                <img class="img-thumbnail" src="..." alt="{{resident.username}}">
+                            </object>   
+                            {% endif %}
+                        </div>
+                        <div class="col-10">
+                            <h5>{{resident.full_name | title}}</h5>
+                            {% if resident.bio %}
+                            <p><span class="bolden">Bio: </span>{{resident.bio}}</p>
+                            {% endif %}  
+                            {% if resident.this_user.email %} 
+                            <p><span class="bolden"><span class="fa fa-envelope"></span></span> {{resident.this_user.email}}</p>  
+                            {% endif %}         
+                            <p class="text-muted">Joined on {{resident.created}}</p>
+                            <h6 class="text-danger"><a href="/delete-resident/{{resident.id}}">Remove resident</a></h6>
+                        </div>
+                    </div>                            
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <div class="col-12">
+            <div class="card post-card">
+                <div class="card-body">
+                    <p>You haven't added any residents yet.</p>                              
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

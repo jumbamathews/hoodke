@@ -1,0 +1,10 @@
+Hello {{name}}
+
+You have been added to {{hood}} neighbourhood by your admin {{admin}}. Use the credentials below to log into your account after which you can change your password and update your profile.
+
+Username: {{username}}
+Password: {{password}}
+
+Enjoy!
+
+HoodMap (2020)

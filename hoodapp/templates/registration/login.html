@@ -1,0 +1,42 @@
+{%extends "../django_registration/base.html"%}
+{% load bootstrap4 %}
+{% block content %}
+<div class="container-fluid auth-pg">
+  <div class="row under-nav">
+      <div class="col-xs-12 col-lg-4"></div>            
+      <div class="col-xs-12 col-lg-4">
+        
+        <div class="jumbotron">
+          <div class="card">
+            <div class="card-body">
+              
+              <h2 class="text-center title-font">HoodMap</h2>  
+              <br>
+              <form  action="/accounts/login/" method="post">
+                {% csrf_token %}
+                {% bootstrap_form form%}
+    
+                <div class="form-group">
+                  <br>
+                  <input type="submit" class="btn btn-info form-control" value="Log In">
+                </div>
+    
+                <input type="hidden" name="next" value="{{next}}">
+    
+              </form>                         
+            </div>
+          </div> 
+          <br>
+          <div class="card">
+            <div class="card-body text-center">  
+              <h5 class="bolden text-center"><a href="/accounts/register">Register a neighbourhood here</a>.</h5>              
+            </div>
+          </div>         
+        </div>        
+  
+      </div>
+      <div class="col-xs-12 col-lg-4"></div>
+  </div>
+</div>
+
+{% endblock %}

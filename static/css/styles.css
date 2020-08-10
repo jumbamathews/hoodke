@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Fondamento&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=PT+Serif&display=swap");
+
+
+html, body{
+    scroll-behavior: smooth;
+    color: black;
+    height: 100%;
+    width: 100%;    
+    font-family: 'PT Serif', serif;  
+    font-size: medium;    
+}
+
+
+.no-display{
+    visibility: hidden;
+}
+
+img {
+    width: 100%;
+    object-fit: cover;
+}
+
+a {
+    color: inherit;
+}
+
+a:hover{
+    color: inherit;
+}
+
+.row.display-flex {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.thumbnail {
+  height: 100%;
+}
+
+object{
+    width: 100%;
+    object-fit: cover;
+}
+
+.profile-jumbo{   
+    /* background-color: #ece1e1; */
+    border-radius: 0%;
+    padding-top: 1em;
+    background-color: #f4f4f4;
+}
+
+.map-jumbo{
+    background-color: transparent;
+    padding-top: 1em;
+    padding-right: 0em;
+    padding-left: 0em;
+}
+
+.bolden{
+    font-weight: 600;
+}
+
+.post-card,
+.list-card{
+    margin-bottom: 1em;
+    background-color: #f4f4f4;
+    font-size: medium;
+    line-height: 1em;
+    padding-top: 0em;
+}
+
+.post-card .card-body{
+    padding-bottom: 0em;
+}
+
+
+.title-font{
+    font-family: 'Fondamento', cursive;    
+    font-weight: 600;
+}
+
+.auth-pg .jumbotron{
+    background-color: transparent;
+}
+
+.admin-font{
+    font-size: 0.5em;
+}
+

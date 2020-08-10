@@ -1,0 +1,48 @@
+{%extends 'base.html'%}
+{% load static %}
+
+{% block content %}
+{{block.super}}
+
+<div class="container">
+    <br>
+    <div class="row">
+        <div class="col-8">
+            <h1>Search results | {{message}}</h1>    
+            <hr>        
+        </div>
+        <div class="col-4">
+            <a href="{%url 'index'%}"><button class="btn btn-outline-secondary">Home</button></a>
+        </div>
+        <hr>
+        {% if blank_message %}    
+        <h5 class="bolden">{{blank_message}}</h5> 
+        {% else %}    
+            {% if businesses %}
+
+            {% for biz in businesses %}
+            <div class="col-12">
+                <div class="card list-card">
+                    <div class="card-body">
+                        <div class="row">                            
+                            <div class="col-12">
+                                <h5>{{biz.business_name | title}}</h5>
+                                <p><span class="bolden text-muted"><span class="fa fa-envelope"></span></span> {{biz.business_email}}</p>   
+                                <h6 class="bolden">Description</h6> 
+                                <p>{{biz.short_description}}</p>                              
+                                <p class="text-secondary">Added on {{biz.created}} by {{biz.owner.username}}.</p>                                
+                            </div>
+                        </div>                            
+                    </div>
+                </div>
+            </div>        
+            {% endfor %}
+                                    
+            {% else %}
+            <h5>No business matching "{{message}}" in your neighbourhood.</h5>  
+            {% endif %} 
+        {% endif %}         
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,7 @@
+Hello {{name}}
+
+Thank you for creating a HoodMap account. As an admin, you're responsible for creating your neighbourhood and adding occupants. 
+
+Welcome!
+
+HoodMap Team (2020)
